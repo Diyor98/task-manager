@@ -8,6 +8,18 @@ const taskRouter = require('./routers/task')
 const app = express()
 const port = process.env.PORT || 3000
 
+// app.use((req, res, next) => {
+//     if (req.method === 'GET') {
+//         res.send('GET requests are disabled')
+//     } else {
+//         next()
+//     }
+// })
+
+// app.use((req, res, next) => {
+//     res.status(503).send("The website is under maintenance mode. Try again later.")
+// })
+
 app.use(express.json())
 app.use(userRouter)
 app.use(taskRouter)
@@ -19,11 +31,11 @@ app.listen(port, () => {
 
 
 // For practice purposes
-const jwt = require('jsonwebtoken')
+// const jwt = require('jsonwebtoken')
 
-const myFunction = async () => {
-    const token = jwt.sign({ _id: 'abc123' }, 'thisismynewcourse', { expiresIn: '7 seconds' })
-    const data = jwt.verify(token, 'thisismynewcourse')
-    console.log(data)
-}
-myFunction()
+// const myFunction = async () => {
+//     const token = jwt.sign({ _id: 'abc123' }, 'thisismynewcourse', { expiresIn: '7 seconds' })
+//     const data = jwt.verify(token, 'thisismynewcourse')
+//     console.log(data)
+// }
+// myFunction()
